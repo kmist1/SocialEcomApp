@@ -30,10 +30,37 @@ struct ProductListView: View {
                 NavigationLink(
                     destination: coordinator.productDetail(for: product)
                 ) {
-                    VStack(alignment: .leading) {
-                        Text(product.title).font(.headline)
-                        Text(product.description).font(.subheadline)
-                        Text("$\(product.price, specifier: "%.2f")").font(.footnote)
+                    HStack(alignment: .top, spacing: 12) {
+                        // Product Image on Leading Side
+                        AsyncImage(url: URL(string: product.imageUrl)) { phase in
+                            switch phase {
+                            case .empty:
+                                ProgressView()
+                                    .frame(width: 60, height: 60)
+                            case .success(let image):
+                                image
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: 60, height: 60)
+                                    .cornerRadius(8)
+                            case .failure:
+                                Image(systemName: "photo")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 60, height: 60)
+                                    .foregroundColor(.gray)
+                            @unknown default:
+                                EmptyView()
+                            }
+                        }
+
+                        VStack(alignment: .leading) {
+                            Text(product.title).font(.headline)
+                            Text(product.description).font(.subheadline)
+                                .lineLimit(2)
+                                .foregroundColor(.secondary)
+                            Text("$\(product.price, specifier: "%.2f")").font(.footnote)
+                        }
                     }
                     .padding(.vertical, 8)
                 }

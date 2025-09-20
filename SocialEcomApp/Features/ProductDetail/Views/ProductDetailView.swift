@@ -12,24 +12,93 @@ struct ProductDetailView: View {
     @StateObject var viewModel: ProductDetailViewModel
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 16) {
-            Text(viewModel.product.title).font(.title)
-            Text(viewModel.product.description)
-            Text("Price: $\(viewModel.product.price, specifier: "%.2f")")
+        ScrollView {
+            VStack(alignment: .leading, spacing: 20) {
 
-            Button(action: {
-                viewModel.addToCart()
-            }) {
-                Text(viewModel.isAddedToCart ? "Added to Cart" : "Add to Cart")
+                // MARK: - Product Image
+                AsyncImage(url: URL(string: viewModel.product.imageUrl)) { phase in
+                    switch phase {
+                    case .empty:
+                        ZStack {
+                            Color.gray.opacity(0.2)
+                            ProgressView()
+                        }
+                        .frame(height: 250)
+                        .cornerRadius(12)
+                    case .success(let image):
+                        image
+                            .resizable()
+                            .scaledToFit()
+                            .frame(maxWidth: .infinity)
+                            .frame(height: 250)
+                            .cornerRadius(12)
+                            .shadow(radius: 5)
+                    case .failure:
+                        Image(systemName: "photo")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(height: 250)
+                            .foregroundColor(.gray)
+                            .cornerRadius(12)
+                    @unknown default:
+                        EmptyView()
+                    }
+                }
+
+                // MARK: - Title & Price
+                VStack(alignment: .leading, spacing: 8) {
+                    Text(viewModel.product.title)
+                        .font(.title)
+                        .fontWeight(.bold)
+
+                    Text("$\(viewModel.product.price, specifier: "%.2f")")
+                        .font(.title2)
+                        .fontWeight(.semibold)
+                        .foregroundColor(.green)
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding()
+                .background(Color(.systemGray6))
+                .cornerRadius(12)
+
+                // MARK: - Description
+                VStack(alignment: .leading, spacing: 8) {
+                    Text("Description")
+                        .font(.headline)
+                    Text(viewModel.product.description)
+                        .font(.body)
+                        .foregroundColor(.secondary)
+                }
+                .padding(.horizontal)
+
+                // MARK: - Add to Cart Button
+                Button(action: {
+                    viewModel.addToCart()
+                }) {
+                    HStack {
+                        Image(systemName: viewModel.isAddedToCart ? "checkmark.circle.fill" : "cart.fill")
+                        Text(viewModel.isAddedToCart ? "Added to Cart" : "Add to Cart")
+                            .fontWeight(.semibold)
+                    }
+                    .frame(maxWidth: .infinity)
                     .padding()
-                    .background(Color.blue)
+                    .background(viewModel.isAddedToCart ? Color.green : Color.blue)
                     .foregroundColor(.white)
-                    .cornerRadius(10)
-            }
+                    .cornerRadius(12)
+                    .shadow(radius: 3)
+                }
+                .padding(.horizontal)
 
-            CommentListView(productId: viewModel.product.id)
+                // MARK: - Comments Section
+                VStack(alignment: .leading, spacing: 12) {
+                    CommentListView(productId: viewModel.product.id)
+                        .frame(minHeight: 200)
+                }
+                .padding(.horizontal)
+            }
+            .padding()
         }
-        .padding()
         .navigationTitle("Product Detail")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
