@@ -7,8 +7,17 @@
 
 import SwiftUI
 
-final class AppCoordinator {
-    func start() -> some View {
-        ProductListCoordinator().start()
+final class AppCoordinator: ObservableObject {
+    @Published var rootView: AnyView = AnyView(EmptyView())
+
+    private var tabBarCoordinator: TabBarCoordinator!
+
+    init() {
+        start()
+    }
+
+    func start() {
+        tabBarCoordinator = TabBarCoordinator()
+        rootView = AnyView(tabBarCoordinator.start())
     }
 }

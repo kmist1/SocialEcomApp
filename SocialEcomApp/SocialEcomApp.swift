@@ -10,15 +10,15 @@ import Firebase
 
 @main
 struct SocialEcomApp: App {
-    let coordinator = AppCoordinator()
-    
+    @StateObject private var coordinator = AppCoordinator()
+
     init(){
         FirebaseApp.configure()
     }
 
     var body: some Scene {
         WindowGroup {
-            coordinator.start()
+            coordinator.rootView
         }
     }
 }

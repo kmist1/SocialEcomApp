@@ -8,16 +8,13 @@
 import SwiftUI
 
 struct ProductListView: View {
-    @StateObject var viewModel: ProductListViewModel
+    @StateObject var viewModel: ProductListViewModel = ProductListViewModel()
     var coordinator: ProductListCoordinator //TODO: remove dependency of coordinator from here, this should not have coordinator i think
 
     var body: some View {
         NavigationView {
             content
                 .navigationTitle("Products")
-                .onAppear {
-                    viewModel.loadInitial()
-                }
         }
     }
 

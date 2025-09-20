@@ -20,7 +20,7 @@ final class ProductListViewModel: ObservableObject {
     private let dataSource: ProductDataSourceProtocol
     private var cancellables = Set<AnyCancellable>()
 
-    init(dataSource: ProductDataSourceProtocol) {
+    init(dataSource: ProductDataSourceProtocol = ProductDataSource()) {
         self.dataSource = dataSource
         bind()
         loadInitial()
@@ -28,7 +28,7 @@ final class ProductListViewModel: ObservableObject {
 
     func loadInitial() {
         state = .loading
-        dataSource.loadInitial()
+        dataSource.loadInitial() // Triggers fetch
     }
 
     func loadMoreIfNeeded(currentItem: Product?) {
@@ -39,10 +39,12 @@ final class ProductListViewModel: ObservableObject {
         dataSource.productsPublisher
             .receive(on: DispatchQueue.main)
             .sink { [weak self] products in
+                guard let self = self else { return }
                 if products.isEmpty {
-                    self?.state = .idle
+                    self.state = .idle
                 } else {
-                    self?.state = .success(products)
+                    // Always assign to trigger UI even if same products
+                    self.state = .success(products)
                 }
             }
             .store(in: &cancellables)

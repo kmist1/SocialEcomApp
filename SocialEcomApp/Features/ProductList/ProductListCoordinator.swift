@@ -9,9 +9,7 @@ import SwiftUI
 
 final class ProductListCoordinator {
     func start() -> some View {
-        let productDataSource = ProductDataSource()
-        let viewModel = ProductListViewModel(dataSource: productDataSource)
-        return ProductListView(viewModel: viewModel, coordinator: self)
+        return ProductListView(coordinator: self)
     }
 
     func productDetail(for product: Product) -> some View {
