@@ -11,6 +11,7 @@ import Combine
 struct ProductDetailView: View {
     @StateObject var viewModel: ProductDetailViewModel
     @State private var isChatOpen = false
+    @State private var showComments = false   // ✅ State for bottom sheet
     private let cartDataSource: CartDataSourceProtocol
 
     init(viewModel: ProductDetailViewModel, cartDataSource: CartDataSourceProtocol) {
@@ -122,12 +123,19 @@ struct ProductDetailView: View {
                 }
                 .padding(.horizontal)
 
-                // MARK: - Comments Section
-                VStack(alignment: .leading, spacing: 12) {
-                    Text("Comments")
-                        .font(.headline)
-                    CommentListView(productId: viewModel.product.id)
-                        .frame(minHeight: 200)
+                // MARK: - View Comments Button
+                Button(action: {
+                    showComments = true
+                }) {
+                    HStack {
+                        Image(systemName: "text.bubble.fill")
+                        Text("View Comments")
+                            .fontWeight(.semibold)
+                    }
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .background(Color(.systemGray6))
+                    .cornerRadius(12)
                 }
                 .padding(.horizontal)
             }
@@ -135,5 +143,11 @@ struct ProductDetailView: View {
         }
         .navigationTitle("Product Detail")
         .navigationBarTitleDisplayMode(.inline)
+        // ✅ Bottom sheet for comments
+        .sheet(isPresented: $showComments) {
+            CommentListView(productId: viewModel.product.id)
+                .presentationDetents([.medium, .large])  // iOS 16+ sheet sizes
+                .presentationDragIndicator(.visible)
+        }
     }
 }
