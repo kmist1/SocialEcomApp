@@ -1,0 +1,617 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		934A08B72E7E6889002EED94 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 934A08B62E7E6889002EED94 /* FirebaseFirestore */; };
+		934A08B92E7E6897002EED94 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 934A08B82E7E6897002EED94 /* FirebaseAuth */; };
+		934A08C62E7E7642002EED94 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 934A08C52E7E7642002EED94 /* GoogleService-Info.plist */; };
+		934A08C72E7E7642002EED94 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 934A08C52E7E7642002EED94 /* GoogleService-Info.plist */; };
+		934A08C82E7E7642002EED94 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 934A08C52E7E7642002EED94 /* GoogleService-Info.plist */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		934A08542E7CDFBF002EED94 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 934A083B2E7CDFBE002EED94 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 934A08422E7CDFBE002EED94;
+			remoteInfo = SocialEcomApp;
+		};
+		934A085E2E7CDFBF002EED94 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 934A083B2E7CDFBE002EED94 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 934A08422E7CDFBE002EED94;
+			remoteInfo = SocialEcomApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		934A08432E7CDFBE002EED94 /* SocialEcomApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialEcomApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		934A08532E7CDFBF002EED94 /* SocialEcomAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SocialEcomAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		934A085D2E7CDFBF002EED94 /* SocialEcomAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SocialEcomAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		934A08C52E7E7642002EED94 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		934A08452E7CDFBE002EED94 /* SocialEcomApp */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = SocialEcomApp;
+			sourceTree = "<group>";
+		};
+		934A08562E7CDFBF002EED94 /* SocialEcomAppTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = SocialEcomAppTests;
+			sourceTree = "<group>";
+		};
+		934A08602E7CDFBF002EED94 /* SocialEcomAppUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = SocialEcomAppUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		934A08402E7CDFBE002EED94 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				934A08B72E7E6889002EED94 /* FirebaseFirestore in Frameworks */,
+				934A08B92E7E6897002EED94 /* FirebaseAuth in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		934A08502E7CDFBF002EED94 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		934A085A2E7CDFBF002EED94 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		934A083A2E7CDFBE002EED94 = {
+			isa = PBXGroup;
+			children = (
+				934A08452E7CDFBE002EED94 /* SocialEcomApp */,
+				934A08562E7CDFBF002EED94 /* SocialEcomAppTests */,
+				934A08602E7CDFBF002EED94 /* SocialEcomAppUITests */,
+				934A08B52E7E6889002EED94 /* Frameworks */,
+				934A08442E7CDFBE002EED94 /* Products */,
+				934A08C52E7E7642002EED94 /* GoogleService-Info.plist */,
+			);
+			sourceTree = "<group>";
+		};
+		934A08442E7CDFBE002EED94 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				934A08432E7CDFBE002EED94 /* SocialEcomApp.app */,
+				934A08532E7CDFBF002EED94 /* SocialEcomAppTests.xctest */,
+				934A085D2E7CDFBF002EED94 /* SocialEcomAppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		934A08B52E7E6889002EED94 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		934A08422E7CDFBE002EED94 /* SocialEcomApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 934A08672E7CDFBF002EED94 /* Build configuration list for PBXNativeTarget "SocialEcomApp" */;
+			buildPhases = (
+				934A083F2E7CDFBE002EED94 /* Sources */,
+				934A08402E7CDFBE002EED94 /* Frameworks */,
+				934A08412E7CDFBE002EED94 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				934A08452E7CDFBE002EED94 /* SocialEcomApp */,
+			);
+			name = SocialEcomApp;
+			packageProductDependencies = (
+				934A08B62E7E6889002EED94 /* FirebaseFirestore */,
+				934A08B82E7E6897002EED94 /* FirebaseAuth */,
+			);
+			productName = SocialEcomApp;
+			productReference = 934A08432E7CDFBE002EED94 /* SocialEcomApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		934A08522E7CDFBF002EED94 /* SocialEcomAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 934A086A2E7CDFBF002EED94 /* Build configuration list for PBXNativeTarget "SocialEcomAppTests" */;
+			buildPhases = (
+				934A084F2E7CDFBF002EED94 /* Sources */,
+				934A08502E7CDFBF002EED94 /* Frameworks */,
+				934A08512E7CDFBF002EED94 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				934A08552E7CDFBF002EED94 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				934A08562E7CDFBF002EED94 /* SocialEcomAppTests */,
+			);
+			name = SocialEcomAppTests;
+			packageProductDependencies = (
+			);
+			productName = SocialEcomAppTests;
+			productReference = 934A08532E7CDFBF002EED94 /* SocialEcomAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		934A085C2E7CDFBF002EED94 /* SocialEcomAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 934A086D2E7CDFBF002EED94 /* Build configuration list for PBXNativeTarget "SocialEcomAppUITests" */;
+			buildPhases = (
+				934A08592E7CDFBF002EED94 /* Sources */,
+				934A085A2E7CDFBF002EED94 /* Frameworks */,
+				934A085B2E7CDFBF002EED94 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				934A085F2E7CDFBF002EED94 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				934A08602E7CDFBF002EED94 /* SocialEcomAppUITests */,
+			);
+			name = SocialEcomAppUITests;
+			packageProductDependencies = (
+			);
+			productName = SocialEcomAppUITests;
+			productReference = 934A085D2E7CDFBF002EED94 /* SocialEcomAppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		934A083B2E7CDFBE002EED94 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1620;
+				LastUpgradeCheck = 1620;
+				TargetAttributes = {
+					934A08422E7CDFBE002EED94 = {
+						CreatedOnToolsVersion = 16.2;
+					};
+					934A08522E7CDFBF002EED94 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = 934A08422E7CDFBE002EED94;
+					};
+					934A085C2E7CDFBF002EED94 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = 934A08422E7CDFBE002EED94;
+					};
+				};
+			};
+			buildConfigurationList = 934A083E2E7CDFBE002EED94 /* Build configuration list for PBXProject "SocialEcomApp" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 934A083A2E7CDFBE002EED94;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				934A08B42E7E681D002EED94 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 934A08442E7CDFBE002EED94 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				934A08422E7CDFBE002EED94 /* SocialEcomApp */,
+				934A08522E7CDFBF002EED94 /* SocialEcomAppTests */,
+				934A085C2E7CDFBF002EED94 /* SocialEcomAppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		934A08412E7CDFBE002EED94 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				934A08C62E7E7642002EED94 /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		934A08512E7CDFBF002EED94 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				934A08C82E7E7642002EED94 /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		934A085B2E7CDFBF002EED94 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				934A08C72E7E7642002EED94 /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		934A083F2E7CDFBE002EED94 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		934A084F2E7CDFBF002EED94 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		934A08592E7CDFBF002EED94 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		934A08552E7CDFBF002EED94 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 934A08422E7CDFBE002EED94 /* SocialEcomApp */;
+			targetProxy = 934A08542E7CDFBF002EED94 /* PBXContainerItemProxy */;
+		};
+		934A085F2E7CDFBF002EED94 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 934A08422E7CDFBE002EED94 /* SocialEcomApp */;
+			targetProxy = 934A085E2E7CDFBF002EED94 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		934A08652E7CDFBF002EED94 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		934A08662E7CDFBF002EED94 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		934A08682E7CDFBF002EED94 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"SocialEcomApp/Preview Content\"";
+				DEVELOPMENT_TEAM = 8BWMNX8FD2;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = KrunalMistry.SocialEcomApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		934A08692E7CDFBF002EED94 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"SocialEcomApp/Preview Content\"";
+				DEVELOPMENT_TEAM = 8BWMNX8FD2;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = KrunalMistry.SocialEcomApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		934A086B2E7CDFBF002EED94 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8BWMNX8FD2;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = KrunalMistry.SocialEcomAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SocialEcomApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SocialEcomApp";
+			};
+			name = Debug;
+		};
+		934A086C2E7CDFBF002EED94 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8BWMNX8FD2;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = KrunalMistry.SocialEcomAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SocialEcomApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SocialEcomApp";
+			};
+			name = Release;
+		};
+		934A086E2E7CDFBF002EED94 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8BWMNX8FD2;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = KrunalMistry.SocialEcomAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SocialEcomApp;
+			};
+			name = Debug;
+		};
+		934A086F2E7CDFBF002EED94 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8BWMNX8FD2;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = KrunalMistry.SocialEcomAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SocialEcomApp;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		934A083E2E7CDFBE002EED94 /* Build configuration list for PBXProject "SocialEcomApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				934A08652E7CDFBF002EED94 /* Debug */,
+				934A08662E7CDFBF002EED94 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		934A08672E7CDFBF002EED94 /* Build configuration list for PBXNativeTarget "SocialEcomApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				934A08682E7CDFBF002EED94 /* Debug */,
+				934A08692E7CDFBF002EED94 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		934A086A2E7CDFBF002EED94 /* Build configuration list for PBXNativeTarget "SocialEcomAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				934A086B2E7CDFBF002EED94 /* Debug */,
+				934A086C2E7CDFBF002EED94 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		934A086D2E7CDFBF002EED94 /* Build configuration list for PBXNativeTarget "SocialEcomAppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				934A086E2E7CDFBF002EED94 /* Debug */,
+				934A086F2E7CDFBF002EED94 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		934A08B42E7E681D002EED94 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		934A08B62E7E6889002EED94 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 934A08B42E7E681D002EED94 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		934A08B82E7E6897002EED94 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 934A08B42E7E681D002EED94 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 934A083B2E7CDFBE002EED94 /* Project object */;
+}
