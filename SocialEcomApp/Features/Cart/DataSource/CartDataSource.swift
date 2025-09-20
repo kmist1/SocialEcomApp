@@ -9,30 +9,24 @@
 import Foundation
 
 protocol CartDataSourceProtocol {
-    func addToCart(product: Product)
-    func getCartItems() -> [Product]
+    var cartItemsPublisher: Published<[Product]>.Publisher { get }
+    func addToCart(_ product: Product)
+    func removeFromCart(productId: String)
 }
 
+import Combine
+
 final class CartDataSource: CartDataSourceProtocol {
-    func addToCart(product: Product) {
-        //do nothing
+    @Published private var cartItems: [Product] = []
+    var cartItemsPublisher: Published<[Product]>.Publisher { $cartItems }
+
+    func addToCart(_ product: Product) {
+        if !cartItems.contains(where: { $0.id == product.id }) {
+            cartItems.append(product)
+        }
     }
-    
-    func getCartItems() -> [Product] {
-        return []
+
+    func removeFromCart(productId: String) {
+        cartItems.removeAll { $0.id == productId }
     }
-    
-//    private let cartService: CartServiceProtocol
-//
-//    init(cartService: CartServiceProtocol = CartService()) {
-//        self.cartService = cartService
-//    }
-//
-//    func addToCart(product: Product) {
-//        cartService.addProductToCart(product)
-//    }
-//
-//    func getCartItems() -> [Product] {
-//        cartService.getCartItems()
-//    }
 }

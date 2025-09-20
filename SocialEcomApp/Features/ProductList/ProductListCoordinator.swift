@@ -8,12 +8,23 @@
 import SwiftUI
 
 final class ProductListCoordinator {
+    private let cartDataSource: CartDataSourceProtocol
+
+    init(cartDataSource: CartDataSourceProtocol) {
+        self.cartDataSource = cartDataSource
+    }
+
     func start() -> some View {
-        return ProductListView(coordinator: self)
+        let viewModel = ProductListViewModel()
+        return NavigationView {
+            ProductListView(viewModel: viewModel, coordinator: self)
+                .navigationTitle("Products") // Title stays here
+                .navigationBarTitleDisplayMode(.inline)
+        }
     }
 
     func productDetail(for product: Product) -> some View {
         let viewModel = ProductDetailViewModel(product: product)
-        return ProductDetailView(viewModel: viewModel)
+        return ProductDetailView(viewModel: viewModel, cartDataSource: cartDataSource)
     }
 }

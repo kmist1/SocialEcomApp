@@ -11,6 +11,12 @@ import Combine
 struct ProductDetailView: View {
     @StateObject var viewModel: ProductDetailViewModel
     @State private var isChatOpen = false
+    private let cartDataSource: CartDataSourceProtocol
+
+    init(viewModel: ProductDetailViewModel, cartDataSource: CartDataSourceProtocol) {
+        _viewModel = StateObject(wrappedValue: viewModel)
+        self.cartDataSource = cartDataSource
+    }
 
     var body: some View {
         ScrollView {
@@ -74,21 +80,19 @@ struct ProductDetailView: View {
 
                 // MARK: - Add to Cart Button
                 Button(action: {
-                    viewModel.addToCart()
+                    cartDataSource.addToCart(viewModel.product)
                 }) {
                     HStack {
-                        Image(systemName: viewModel.isAddedToCart ? "checkmark.circle.fill" : "cart.fill")
-                        Text(viewModel.isAddedToCart ? "Added to Cart" : "Add to Cart")
+                        Image(systemName: "cart.fill.badge.plus")
+                        Text("Add to Cart")
                             .fontWeight(.semibold)
                     }
                     .frame(maxWidth: .infinity)
                     .padding()
-                    .background(viewModel.isAddedToCart ? Color.green : Color.blue)
+                    .background(Color.blue)
                     .foregroundColor(.white)
                     .cornerRadius(12)
-                    .shadow(radius: 3)
                 }
-                .padding(.horizontal)
 
                 // MARK: - Chat Button
                 NavigationLink(

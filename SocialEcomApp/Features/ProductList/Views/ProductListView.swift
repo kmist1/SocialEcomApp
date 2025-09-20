@@ -14,7 +14,6 @@ struct ProductListView: View {
     var body: some View {
         NavigationView {
             content
-                .navigationTitle("Products")
         }
     }
 

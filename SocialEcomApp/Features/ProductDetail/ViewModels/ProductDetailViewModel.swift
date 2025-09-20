@@ -24,7 +24,7 @@ final class ProductDetailViewModel: ObservableObject {
     }
 
     func addToCart() {
-        cartDataSource.addToCart(product: product)
+        cartDataSource.addToCart(product)
         isAddedToCart = true
     }
 }
