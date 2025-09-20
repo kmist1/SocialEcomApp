@@ -10,27 +10,33 @@ struct MessageBubble: View {
     let message: ChatMessage
     let isCurrentUser: Bool
 
+    // Tunable max width so long messages wrap nicely without breaking the row
+    private let bubbleMaxWidth: CGFloat = 260
+
     var body: some View {
-        HStack {
-            if isCurrentUser { Spacer() } // push current user's bubble to the right
+        HStack(spacing: 8) {
+            if isCurrentUser { Spacer(minLength: 24) }
 
             VStack(alignment: isCurrentUser ? .trailing : .leading, spacing: 4) {
-                Text(message.sender)
-                    .font(.caption)
+                // Sender (optional: hide mine or show "You")
+                Text(isCurrentUser ? "You" : message.sender)
+                    .font(.caption2)
                     .foregroundColor(.gray)
-                    .frame(maxWidth: .infinity, alignment: isCurrentUser ? .trailing : .leading)
+                    .opacity(0.9)
 
                 Text(message.text)
-                    .padding(10)
+                    .padding(.vertical, 10)
+                    .padding(.horizontal, 12)
                     .background(isCurrentUser ? Color.blue : Color(.systemGray4))
                     .foregroundColor(isCurrentUser ? .white : .black)
                     .cornerRadius(12)
-                    .frame(maxWidth: 250, alignment: isCurrentUser ? .trailing : .leading)
+                    .frame(maxWidth: bubbleMaxWidth, alignment: isCurrentUser ? .trailing : .leading)
+                    .fixedSize(horizontal: false, vertical: true) // allow multi-line growth
             }
 
-            if !isCurrentUser { Spacer() } // push other user's bubble to the left
+            if !isCurrentUser { Spacer(minLength: 24) }
         }
-        .padding(.horizontal)
+        .padding(.horizontal, 8)
         .padding(.vertical, 2)
     }
 }
