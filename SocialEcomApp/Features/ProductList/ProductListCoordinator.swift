@@ -18,7 +18,6 @@ final class ProductListCoordinator {
         let viewModel = ProductListViewModel()
         return NavigationView {
             ProductListView(viewModel: viewModel, coordinator: self)
-                .navigationTitle("Products") // Title stays here
                 .navigationBarTitleDisplayMode(.inline)
         }
     }
