@@ -11,7 +11,8 @@ import Combine
 struct ProductDetailView: View {
     @StateObject var viewModel: ProductDetailViewModel
     @State private var isChatOpen = false
-    @State private var showComments = false   // ✅ State for bottom sheet
+    @State private var showComments = false
+    @State private var showShareSheet = false
     private let cartDataSource: CartDataSourceProtocol
 
     init(viewModel: ProductDetailViewModel, cartDataSource: CartDataSourceProtocol) {
@@ -79,7 +80,7 @@ struct ProductDetailView: View {
                 }
                 .padding(.horizontal)
 
-                // MARK: - Add to Cart Button
+                // MARK: - Action Buttons
                 Button(action: {
                     cartDataSource.addToCart(viewModel.product)
                 }) {
@@ -95,7 +96,22 @@ struct ProductDetailView: View {
                     .cornerRadius(12)
                 }
 
-                // MARK: - Chat Button
+                // Share Button
+                Button(action: {
+                    showShareSheet = true
+                }) {
+                    HStack {
+                        Image(systemName: "square.and.arrow.up")
+                        Text("Share Product")
+                            .fontWeight(.semibold)
+                    }
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .background(Color(.systemGray5))
+                    .cornerRadius(12)
+                }
+
+                // MARK: - Open Chat Button
                 NavigationLink(
                     destination: ChatCoordinator().start(
                         productId: viewModel.product.id,
@@ -143,10 +159,15 @@ struct ProductDetailView: View {
         }
         .navigationTitle("Product Detail")
         .navigationBarTitleDisplayMode(.inline)
-        // ✅ Bottom sheet for comments
+
+        .sheet(isPresented: $showShareSheet) {
+            let shareText = "\(viewModel.product.title)\nPrice: $\(viewModel.product.price)\n\(viewModel.product.description)"
+            ShareSheet(activityItems: [shareText])
+        }
+
         .sheet(isPresented: $showComments) {
             CommentListView(productId: viewModel.product.id)
-                .presentationDetents([.medium, .large])  // iOS 16+ sheet sizes
+                .presentationDetents([.medium, .large])
                 .presentationDragIndicator(.visible)
         }
     }
