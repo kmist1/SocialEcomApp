@@ -13,6 +13,7 @@ final class CartViewModel: ObservableObject {
     @Published var cartItems: [Product] = []
     private let dataSource: CartDataSourceProtocol
     private var cancellables = Set<AnyCancellable>()
+    @Published var cartCount: Int = 0
 
     init(dataSource: CartDataSourceProtocol) {
         self.dataSource = dataSource
@@ -23,6 +24,11 @@ final class CartViewModel: ObservableObject {
         dataSource.cartItemsPublisher
             .receive(on: DispatchQueue.main)
             .assign(to: \.cartItems, on: self)
+            .store(in: &cancellables)
+
+        dataSource.cartCountPublisher
+            .receive(on: DispatchQueue.main)
+            .assign(to: \.cartCount, on: self)
             .store(in: &cancellables)
     }
 
