@@ -17,7 +17,7 @@ final class TabBarCoordinator {
                     Text("Home")
                 }
 
-            ChatCoordinator().start()
+            ChatCoordinator().start(productId: "", productTitle: "")
                 .tabItem {
                     Image(systemName: "message.fill")
                     Text("Chat")

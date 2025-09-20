@@ -8,10 +8,12 @@
 import SwiftUI
 
 final class ChatCoordinator {
-    func start() -> some View {
-        let viewModel = ChatViewModel()
+    func start(productId: String, productTitle: String) -> some View {
+        let viewModel = ChatRoomViewModel(productId: productId, productTitle: productTitle)
         return NavigationView {
-            ChatTabView(viewModel: viewModel)
+            ChatRoomView(viewModel: viewModel)
+                .navigationTitle(productTitle)
+                .navigationBarTitleDisplayMode(.inline)
         }
     }
 }

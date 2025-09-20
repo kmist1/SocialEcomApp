@@ -10,6 +10,7 @@ import Combine
 
 struct ProductDetailView: View {
     @StateObject var viewModel: ProductDetailViewModel
+    @State private var isChatOpen = false
 
     var body: some View {
         ScrollView {
@@ -89,8 +90,38 @@ struct ProductDetailView: View {
                 }
                 .padding(.horizontal)
 
+                // MARK: - Chat Button
+                NavigationLink(
+                    destination: ChatCoordinator().start(
+                        productId: viewModel.product.id,
+                        productTitle: viewModel.product.title
+                    ),
+                    isActive: $isChatOpen
+                ) {
+                    EmptyView()
+                }
+
+                Button(action: {
+                    isChatOpen = true
+                }) {
+                    HStack {
+                        Image(systemName: "message.fill")
+                        Text("Open Chat")
+                            .fontWeight(.semibold)
+                    }
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .background(Color.orange)
+                    .foregroundColor(.white)
+                    .cornerRadius(12)
+                    .shadow(radius: 3)
+                }
+                .padding(.horizontal)
+
                 // MARK: - Comments Section
                 VStack(alignment: .leading, spacing: 12) {
+                    Text("Comments")
+                        .font(.headline)
                     CommentListView(productId: viewModel.product.id)
                         .frame(minHeight: 200)
                 }
