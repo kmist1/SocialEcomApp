@@ -10,19 +10,26 @@ import Foundation
 import Combine
 import FirebaseFirestore
 
+protocol ChatServiceProtocol {
+    func sendMessage(productId: String, message: ChatMessage, completion: @escaping (Result<Void, Error>) -> Void)
+}
+
 final class ChatRoomViewModel: ObservableObject {
     @Published var messages: [ChatMessage] = []
     @Published var newMessage: String = ""
 
     private let productId: String
-    private let service = FirestoreService()
+    private var service: ChatServiceProtocol
     private var listener: ListenerRegistration?
     let productTitle: String
     let currentUser = "User" + String(Int.random(in: 1...100))// Later, replace with actual signed-in user's ID or name
 
-    init(productId: String, productTitle: String) {
+    init(productId: String,
+         productTitle: String,
+         service: ChatServiceProtocol = ServiceFactory.makeLiveChatService()) {
         self.productId = productId
         self.productTitle = productTitle
+        self.service = service
         listenForMessages()
     }
 
@@ -31,7 +38,12 @@ final class ChatRoomViewModel: ObservableObject {
             print("❌ Error: productId is empty. Cannot start Firestore listener.")
             return
         }
-        listener = service.listenForMessages(productId: productId) { [weak self] result in
+
+        guard let firebaseService = service as? FirestoreService else {
+            return
+        }
+
+        listener = firebaseService.listenForMessages(productId: productId) { [weak self] result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let messages):

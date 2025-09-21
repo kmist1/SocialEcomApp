@@ -79,7 +79,7 @@ extension FirestoreService: CommentServiceProtocol {
 }
 
 // MARK: LiveChat services
-extension FirestoreService {
+extension FirestoreService: ChatServiceProtocol {
     // MARK: - Listen for messages in real-time
     func listenForMessages(productId: String, completion: @escaping (Result<[ChatMessage], Error>) -> Void) -> ListenerRegistration {
         return db.collection("products")

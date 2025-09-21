@@ -34,10 +34,23 @@ class ServiceFactory {
             return RestSubbService() // future comments services
         }
     }
+
+    static func makeLiveChatService() -> ChatServiceProtocol {
+        switch backend {
+        case .firestore:
+            return sharedFirestoreService
+        case .rest:
+            return RestSubbService() // future comments services
+        }
+    }
+
 }
 
 
-class RestSubbService: ProductServiceProtocol, CommentServiceProtocol {
+class RestSubbService: ProductServiceProtocol, CommentServiceProtocol, ChatServiceProtocol {
+    func sendMessage(productId: String, message: ChatMessage, completion: @escaping (Result<Void, any Error>) -> Void) {
+    }
+
     func addComment(_ comment: Comment, completion: @escaping (Result<Void, any Error>) -> Void) {
     }
     
