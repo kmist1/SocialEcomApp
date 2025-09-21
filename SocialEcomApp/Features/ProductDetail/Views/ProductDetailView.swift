@@ -24,34 +24,72 @@ struct ProductDetailView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
 
-                // MARK: - Product Image
-                AsyncImage(url: URL(string: viewModel.product.imageUrl)) { phase in
-                    switch phase {
-                    case .empty:
-                        ZStack {
-                            Color.gray.opacity(0.2)
-                            ProgressView()
+                // MARK: - Product Image with Overlay Buttons
+                ZStack(alignment: .topTrailing) {
+                    AsyncImage(url: URL(string: viewModel.product.imageUrl)) { phase in
+                        switch phase {
+                        case .empty:
+                            ZStack {
+                                Color.gray.opacity(0.2)
+                                ProgressView()
+                            }
+                            .frame(height: 250)
+                            .cornerRadius(12)
+                        case .success(let image):
+                            image
+                                .resizable()
+                                .scaledToFit()
+                                .frame(maxWidth: .infinity)
+                                .frame(height: 250)
+                                .cornerRadius(12)
+                                .shadow(radius: 5)
+                        case .failure:
+                            Image(systemName: "photo")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(height: 250)
+                                .foregroundColor(.gray)
+                                .cornerRadius(12)
+                        @unknown default:
+                            EmptyView()
                         }
-                        .frame(height: 250)
-                        .cornerRadius(12)
-                    case .success(let image):
-                        image
-                            .resizable()
-                            .scaledToFit()
-                            .frame(maxWidth: .infinity)
-                            .frame(height: 250)
-                            .cornerRadius(12)
-                            .shadow(radius: 5)
-                    case .failure:
-                        Image(systemName: "photo")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(height: 250)
-                            .foregroundColor(.gray)
-                            .cornerRadius(12)
-                    @unknown default:
-                        EmptyView()
                     }
+                    VStack(spacing: 12) {
+                        // Share Button
+                        Button(action: {
+                            showShareSheet = true
+                        }) {
+                            Image(systemName: "square.and.arrow.up")
+                                .foregroundColor(.white)
+                                .padding(8)
+                                .background(Color.blue)
+                                .clipShape(Circle())
+                                .shadow(radius: 2)
+                        }
+                        // Chat Button
+                        Button(action: {
+                            isChatOpen = true
+                        }) {
+                            Image(systemName: "message.fill")
+                                .foregroundColor(.white)
+                                .padding(8)
+                                .background(Color.orange)
+                                .clipShape(Circle())
+                                .shadow(radius: 2)
+                        }
+                        // Comments Button
+                        Button(action: {
+                            showComments = true
+                        }) {
+                            Image(systemName: "text.bubble.fill")
+                                .foregroundColor(.white)
+                                .padding(8)
+                                .background(Color.gray)
+                                .clipShape(Circle())
+                                .shadow(radius: 2)
+                        }
+                    }
+                    .padding([.top, .trailing], 16)
                 }
 
                 // MARK: - Title & Price
@@ -96,22 +134,7 @@ struct ProductDetailView: View {
                     .cornerRadius(12)
                 }
 
-                // Share Button
-                Button(action: {
-                    showShareSheet = true
-                }) {
-                    HStack {
-                        Image(systemName: "square.and.arrow.up")
-                        Text("Share Product")
-                            .fontWeight(.semibold)
-                    }
-                    .frame(maxWidth: .infinity)
-                    .padding()
-                    .background(Color(.systemGray5))
-                    .cornerRadius(12)
-                }
-
-                // MARK: - Open Chat Button
+                // MARK: - Open Chat NavigationLink
                 NavigationLink(
                     destination: ChatCoordinator().start(
                         productId: viewModel.product.id,
@@ -121,39 +144,6 @@ struct ProductDetailView: View {
                 ) {
                     EmptyView()
                 }
-
-                Button(action: {
-                    isChatOpen = true
-                }) {
-                    HStack {
-                        Image(systemName: "message.fill")
-                        Text("Open Chat")
-                            .fontWeight(.semibold)
-                    }
-                    .frame(maxWidth: .infinity)
-                    .padding()
-                    .background(Color.orange)
-                    .foregroundColor(.white)
-                    .cornerRadius(12)
-                    .shadow(radius: 3)
-                }
-                .padding(.horizontal)
-
-                // MARK: - View Comments Button
-                Button(action: {
-                    showComments = true
-                }) {
-                    HStack {
-                        Image(systemName: "text.bubble.fill")
-                        Text("View Comments")
-                            .fontWeight(.semibold)
-                    }
-                    .frame(maxWidth: .infinity)
-                    .padding()
-                    .background(Color(.systemGray6))
-                    .cornerRadius(12)
-                }
-                .padding(.horizontal)
             }
             .padding()
         }
