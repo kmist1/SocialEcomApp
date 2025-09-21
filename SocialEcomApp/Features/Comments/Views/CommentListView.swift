@@ -18,9 +18,11 @@ struct CommentListView: View {
         VStack(spacing: 0) {
             // MARK: - Header
             HStack {
+                Spacer()
                 Text("Comments")
                     .font(.headline)
                     .foregroundColor(.gray)
+                    .padding([.bottom, .top], 10)
                 Spacer()
                 if case .loading = viewModel.state {
                     ProgressView()

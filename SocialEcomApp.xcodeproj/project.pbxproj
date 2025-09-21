@@ -12,6 +12,9 @@
 		934A08C62E7E7642002EED94 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 934A08C52E7E7642002EED94 /* GoogleService-Info.plist */; };
 		934A08C72E7E7642002EED94 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 934A08C52E7E7642002EED94 /* GoogleService-Info.plist */; };
 		934A08C82E7E7642002EED94 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 934A08C52E7E7642002EED94 /* GoogleService-Info.plist */; };
+		93E659C92E80A87E00330DFF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93E659C82E80A87E00330DFF /* LaunchScreen.storyboard */; };
+		93E659CA2E80A87E00330DFF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93E659C82E80A87E00330DFF /* LaunchScreen.storyboard */; };
+		93E659CB2E80A87E00330DFF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93E659C82E80A87E00330DFF /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,11 +39,25 @@
 		934A08532E7CDFBF002EED94 /* SocialEcomAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SocialEcomAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		934A085D2E7CDFBF002EED94 /* SocialEcomAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SocialEcomAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		934A08C52E7E7642002EED94 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		93E659C82E80A87E00330DFF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		93C283D72E80A4B6009F3805 /* Exceptions for "SocialEcomApp" folder in "SocialEcomApp" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 934A08422E7CDFBE002EED94 /* SocialEcomApp */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		934A08452E7CDFBE002EED94 /* SocialEcomApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				93C283D72E80A4B6009F3805 /* Exceptions for "SocialEcomApp" folder in "SocialEcomApp" target */,
+			);
 			path = SocialEcomApp;
 			sourceTree = "<group>";
 		};
@@ -86,6 +103,7 @@
 		934A083A2E7CDFBE002EED94 = {
 			isa = PBXGroup;
 			children = (
+				93E659C82E80A87E00330DFF /* LaunchScreen.storyboard */,
 				934A08452E7CDFBE002EED94 /* SocialEcomApp */,
 				934A08562E7CDFBF002EED94 /* SocialEcomAppTests */,
 				934A08602E7CDFBF002EED94 /* SocialEcomAppUITests */,
@@ -237,6 +255,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93E659C92E80A87E00330DFF /* LaunchScreen.storyboard in Resources */,
 				934A08C62E7E7642002EED94 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -246,6 +265,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				934A08C82E7E7642002EED94 /* GoogleService-Info.plist in Resources */,
+				93E659CB2E80A87E00330DFF /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,6 +274,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				934A08C72E7E7642002EED94 /* GoogleService-Info.plist in Resources */,
+				93E659CA2E80A87E00330DFF /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,9 +448,10 @@
 				DEVELOPMENT_TEAM = 8BWMNX8FD2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SocialEcomApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -457,9 +479,10 @@
 				DEVELOPMENT_TEAM = 8BWMNX8FD2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SocialEcomApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
