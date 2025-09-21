@@ -40,7 +40,7 @@ struct TabBarView: View {
             productListCoordinator.start()
                 .tabItem {
                     Image(systemName: "house.fill")
-                    Text("Home")
+                    Text("Shop")
                 }
 
             cartCoordinator.start()
