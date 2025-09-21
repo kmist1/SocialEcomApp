@@ -12,7 +12,7 @@ struct ProductListView: View {
     var coordinator: ProductListCoordinator
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             content
                 .navigationTitle("Products")
                 .navigationBarTitleDisplayMode(.inline)
@@ -31,8 +31,6 @@ struct ProductListView: View {
                     }
                 }
         }
-        // Search bar stays here because it's tied to the list screen only
-        .searchable(text: $viewModel.searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: "Search by name")
     }
 
     @ViewBuilder
@@ -118,6 +116,7 @@ struct ProductListView: View {
                     }
                 }
                 .listStyle(.plain)
+                .searchable(text: $viewModel.searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: "Search by name")
             }
 
         case .failure(let error):
