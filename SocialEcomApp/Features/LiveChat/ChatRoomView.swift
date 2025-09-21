@@ -18,12 +18,18 @@ struct ChatRoomView: View {
             ScrollViewReader { proxy in
                 ScrollView {
                     LazyVStack(alignment: .leading, spacing: 8) {
-                        ForEach(viewModel.messages) { message in
-                            MessageBubble(
-                                message: message,
-                                isCurrentUser: message.sender == viewModel.currentUser
-                            )
-                            .id(message.id)
+                        if viewModel.messages.isEmpty {
+                            Text("No messages yet. Start the conversation!")
+                                .foregroundColor(.secondary)
+                                .padding()
+                        } else {
+                            ForEach(viewModel.messages) { message in
+                                MessageBubble(
+                                    message: message,
+                                    isCurrentUser: message.sender == viewModel.currentUser
+                                )
+                                .id(message.id)
+                            }
                         }
                     }
                     .padding(.horizontal)
