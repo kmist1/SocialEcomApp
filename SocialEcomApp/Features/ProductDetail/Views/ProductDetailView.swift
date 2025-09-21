@@ -10,14 +10,19 @@ import Combine
 
 struct ProductDetailView: View {
     @StateObject var viewModel: ProductDetailViewModel
-    @State private var isChatOpen = false
     @State private var showComments = false
     @State private var showShareSheet = false
     private let cartDataSource: CartDataSourceProtocol
+    var openChat: () -> Void
 
-    init(viewModel: ProductDetailViewModel, cartDataSource: CartDataSourceProtocol) {
+    init(
+        viewModel: ProductDetailViewModel,
+        cartDataSource: CartDataSourceProtocol,
+        openChat: @escaping () -> Void
+    ) {
         _viewModel = StateObject(wrappedValue: viewModel)
         self.cartDataSource = cartDataSource
+        self.openChat = openChat
     }
 
     var body: some View {
@@ -68,7 +73,7 @@ struct ProductDetailView: View {
                         }
                         // Chat Button
                         Button(action: {
-                            isChatOpen = true
+                            openChat()
                         }) {
                             Image(systemName: "message.fill")
                                 .foregroundColor(.white)
@@ -132,17 +137,6 @@ struct ProductDetailView: View {
                     .background(Color.blue)
                     .foregroundColor(.white)
                     .cornerRadius(12)
-                }
-
-                // MARK: - Open Chat NavigationLink
-                NavigationLink(
-                    destination: ChatCoordinator().start(
-                        productId: viewModel.product.id,
-                        productTitle: viewModel.product.title
-                    ),
-                    isActive: $isChatOpen
-                ) {
-                    EmptyView()
                 }
             }
             .padding()

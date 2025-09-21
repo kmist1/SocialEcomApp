@@ -23,7 +23,7 @@ final class ProductListCoordinator {
     }
 
     func productDetail(for product: Product) -> some View {
-        let viewModel = ProductDetailViewModel(product: product)
-        return ProductDetailView(viewModel: viewModel, cartDataSource: cartDataSource)
+        let detailCoordinator = ProductDetailCoordinator(product: product, cartDataSource: cartDataSource)
+        return detailCoordinator.start()
     }
 }

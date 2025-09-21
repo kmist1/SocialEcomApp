@@ -7,6 +7,7 @@
 
 
 import Foundation
+import Combine
 
 protocol CartDataSourceProtocol {
     var cartItemsPublisher: Published<[Product]>.Publisher { get }
@@ -14,8 +15,6 @@ protocol CartDataSourceProtocol {
     func addToCart(_ product: Product)
     func removeFromCart(productId: String)
 }
-
-import Combine
 
 final class CartDataSource: CartDataSourceProtocol {
     @Published private var cartItems: [Product] = []
