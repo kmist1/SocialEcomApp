@@ -17,21 +17,17 @@ This project serves as a practical demonstration of modular design, coordinator-
 > **👉 (To be added)** — A demo walkthrough video showcasing the app in action will be added here.
 
 ## 🏗 High-Level System Design
+<img width="3840" height="1947" alt="new highlevel ecomm diagram " src="https://github.com/user-attachments/assets/051ee9be-70d5-4ff4-8f13-227785601848" />
+Class Level:
+<img width="3840" height="1592" alt="HighLevelEcommDiagram" src="https://github.com/user-attachments/assets/30a45629-ce8c-45a1-b0b1-9122f42105a2" />
 
-> ![System Design Diagram](/docs/SocialEcomApp_SystemDesign.png)
-
-## 🔄 Low-Level Data Flow Diagram
-
-> ![Data Flow Diagram](/docs/SocialEcomApp_DataFlow.png)
+> High-Level System Design: (https://www.mermaidchart.com/app/projects/36be8ae2-7e2e-482e-822a-675eb34bb6d6/diagrams/725b50ec-6b94-4d1b-b99c-807305529643/version/v0.1/edit)
 
 ## ⚡ Sequence Diagrams
 
-*   Add to Cart
-*   Chat (Realtime Messaging)
-*   Comments (Request–Response)
+<img width="1143" height="3839" alt="HighLevelSequence-EcommApp" src="https://github.com/user-attachments/assets/66c4aa48-c8ec-42dd-930e-66516d65e3bd" />
 
-> ![Add to Cart Sequence Diagram](/docs/SocialEcomApp_AddToCart_Sequence.png)
-> *(Insert other sequence diagram image links here, e.g., `/docs/SocialEcomApp_Chat_Sequence.png`)*
+> High-Level Sequence Diagram: (https://www.mermaidchart.com/app/projects/36be8ae2-7e2e-482e-822a-675eb34bb6d6/diagrams/eab7c5fd-5670-453b-9b5f-12f5b52ddb07/version/v0.1/edit)
 
 ## 🛠 Tech Stack
 
