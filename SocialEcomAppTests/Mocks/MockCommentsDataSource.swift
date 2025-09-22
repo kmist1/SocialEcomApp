@@ -10,25 +10,37 @@ import Foundation
 import Combine
 @testable import SocialEcomApp
 
-final class MockCommentsDataSource: CommentsDataSourceProtocol {
+class MockCommentsDataSource: CommentsDataSourceProtocol {
+    var loadCommentsCallCount = 0
+    var addCommentCallCount = 0
+    var shouldReturnError = false
     var mockComments: [Comment] = []
-    var shouldFail = false
+    var addedComments: [Comment] = []
 
     func loadComments(for productId: String, completion: @escaping (Result<[Comment], Error>) -> Void) {
-        if shouldFail {
-            completion(.failure(NSError(domain: "TestError", code: -1)))
-        } else {
-            let filtered = mockComments.filter { $0.productId == productId }
-            completion(.success(filtered))
+        loadCommentsCallCount += 1
+
+        DispatchQueue.main.async {
+            if self.shouldReturnError {
+                completion(.failure(TestError.networkError))
+            } else {
+                let filtered = self.mockComments.filter { $0.productId == productId }
+                completion(.success(filtered))
+            }
         }
     }
 
     func addComment(_ comment: Comment, completion: @escaping (Result<Void, Error>) -> Void) {
-        if shouldFail {
-            completion(.failure(NSError(domain: "TestError", code: -1)))
-        } else {
-            mockComments.append(comment)
-            completion(.success(()))
+        addCommentCallCount += 1
+        addedComments.append(comment)
+
+        DispatchQueue.main.async {
+            if self.shouldReturnError {
+                completion(.failure(TestError.networkError))
+            } else {
+                self.mockComments.append(comment)
+                completion(.success(()))
+            }
         }
     }
 }

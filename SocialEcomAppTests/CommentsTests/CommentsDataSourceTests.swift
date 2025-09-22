@@ -10,106 +10,130 @@ import XCTest
 import Combine
 @testable import SocialEcomApp
 
-final class CommentsDataSourceTests: XCTestCase {
-
-    private var mockDataSource: MockCommentsDataSource!
-    private var productId = "P123"
-    private var sampleComment: Comment!
+class CommentsDataSourceTests: XCTestCase {
+    var dataSource: CommentsDataSource!
+    var mockService: MockCommentService!
 
     override func setUp() {
         super.setUp()
-        mockDataSource = MockCommentsDataSource()
-        sampleComment = Comment(
-            id: "1",
-            productId: productId,
-            userId: "User1",
-            text: "Test comment",
-            createdAt: Date(),
-            parentId: nil
-        )
-        mockDataSource.mockComments = [sampleComment]
+        mockService = MockCommentService()
+        dataSource = CommentsDataSource(service: mockService)
     }
 
     override func tearDown() {
-        mockDataSource = nil
-        sampleComment = nil
+        dataSource = nil
+        mockService = nil
         super.tearDown()
     }
 
-    func testLoadCommentsSuccess() {
-        let expectation = expectation(description: "Comments loaded successfully")
+    func testLoadComments_Success_ReturnsComments() {
+        // Given
+        let productId = "product1"
+        let expectedComments = [
+            Comment(id: "1", productId: productId, userId: "user1", text: "Great product!", createdAt: Date(), parentId: nil),
+            Comment(id: "2", productId: productId, userId: "user2", text: "I agree!", createdAt: Date(), parentId: "1")
+        ]
+        mockService.mockComments = expectedComments
 
-        mockDataSource.loadComments(for: productId) { result in
+        let expectation = XCTestExpectation(description: "Comments loaded")
+
+        // When
+        dataSource.loadComments(for: productId) { result in
+            // Then
             switch result {
             case .success(let comments):
-                XCTAssertEqual(comments.count, 1)
-                XCTAssertEqual(comments.first?.text, "Test comment")
+                XCTAssertEqual(comments.count, 2)
+                XCTAssertEqual(comments[0].productId, productId)
+                XCTAssertEqual(comments[1].parentId, "1")
             case .failure:
-                XCTFail("Expected success but got failure")
+                XCTFail("Expected success")
             }
             expectation.fulfill()
         }
 
-        waitForExpectations(timeout: 1.0)
+        wait(for: [expectation], timeout: 1.0)
+        XCTAssertEqual(mockService.fetchCallCount, 1)
     }
 
-    func testLoadCommentsFailure() {
-        mockDataSource.shouldFail = true
-        let expectation = expectation(description: "Comments load failed")
+    func testAddComment_Success_AddsComment() {
+        // Given
+        let comment = Comment(id: "1", productId: "product1", userId: "user1", text: "New comment", createdAt: Date(), parentId: nil)
 
-        mockDataSource.loadComments(for: productId) { result in
+        let expectation = XCTestExpectation(description: "Comment added")
+
+        // When
+        dataSource.addComment(comment) { result in
+            // Then
             switch result {
             case .success:
-                XCTFail("Expected failure but got success")
-            case .failure(let error):
-                XCTAssertNotNil(error)
-            }
-            expectation.fulfill()
-        }
-
-        waitForExpectations(timeout: 1.0)
-    }
-
-    func testAddCommentSuccess() {
-        let expectation = expectation(description: "Comment added successfully")
-
-        let newComment = Comment(
-            id: "2",
-            productId: productId,
-            userId: "User2",
-            text: "Another comment",
-            createdAt: Date(),
-            parentId: nil
-        )
-
-        mockDataSource.addComment(newComment) { result in
-            switch result {
-            case .success:
-                XCTAssertEqual(self.mockDataSource.mockComments.count, 2)
-                XCTAssertEqual(self.mockDataSource.mockComments.last?.text, "Another comment")
+                XCTAssertEqual(self.mockService.addedComments.count, 1)
+                XCTAssertEqual(self.mockService.addedComments[0].id, "1")
             case .failure:
-                XCTFail("Expected success but got failure")
+                XCTFail("Expected success")
             }
             expectation.fulfill()
         }
 
-        waitForExpectations(timeout: 1.0)
+        wait(for: [expectation], timeout: 1.0)
+        XCTAssertEqual(mockService.addCallCount, 1)
     }
 
-    func testAddCommentFailure() {
-        mockDataSource.shouldFail = true
-        let expectation = expectation(description: "Add comment failed")
+    func testAddComment_Failure_ReturnsError() {
+        // Given
+        let comment = Comment(id: "1", productId: "product1", userId: "user1", text: "New comment", createdAt: Date(), parentId: nil)
+        mockService.shouldReturnError = true
 
-        mockDataSource.addComment(sampleComment) { result in
+        let expectation = XCTestExpectation(description: "Error handled")
+
+        // When
+        dataSource.addComment(comment) { result in
+            // Then
             switch result {
             case .success:
-                XCTFail("Expected failure but got success")
+                XCTFail("Expected failure")
             case .failure(let error):
-                XCTAssertNotNil(error)
+                XCTAssertTrue(error is TestError)
             }
             expectation.fulfill()
         }
 
-        waitForExpectations(timeout: 1.0)
+        wait(for: [expectation], timeout: 1.0)
     }
 }
+
+class MockCommentService: CommentServiceProtocol {
+    var shouldReturnError = false
+    var mockComments: [Comment] = []
+    var addedComments: [Comment] = []
+    var fetchCallCount = 0
+    var addCallCount = 0
+
+    func fetchComments(productId: String, completion: @escaping (Result<[Comment], Error>) -> Void) {
+        fetchCallCount += 1
+
+        if shouldReturnError {
+            completion(.failure(TestError.networkError))
+        } else {
+            let filteredComments = mockComments.filter { $0.productId == productId }
+            completion(.success(filteredComments))
+        }
+    }
+
+    func addComment(_ comment: Comment, completion: @escaping (Result<Void, Error>) -> Void) {
+        addCallCount += 1
+
+        if shouldReturnError {
+            completion(.failure(TestError.networkError))
+        } else {
+            addedComments.append(comment)
+            mockComments.append(comment)
+            completion(.success(()))
+        }
+    }
+}
+
+enum TestError: Error {
+    case networkError
+    case invalidData
+}
+
