@@ -2,15 +2,22 @@
 
 ## 🚀 Summary
 
-SocialEcomApp is a social e-commerce iOS application built with SwiftUI using the **MVVM-C (Model–View–ViewModel–Coordinator) architecture**. It provides users with a comprehensive shopping experience by allowing them to:
+SocialEcomApp is a social e-commerce iOS application built with SwiftUI using the **MVVM-C (Model–View–ViewModel–Coordinator) architecture**. This project serves as a practical demonstration of modular design, coordinator-based navigation, and Firebase's real-time capabilities.
 
-*   Browse and filter products.
-*   View product details, complete with integrated cart, comments, and chat functionalities.
-*   Add items to their cart, with a dynamic badge reflecting the number of items.
-*   Participate in real-time product chats via **Firebase**.
-*   Comment on products and engage in threaded replies.
+## Key Features
 
-This project serves as a practical demonstration of modular design, coordinator-based navigation, and Firebase's real-time capabilities.
+- Product Browsing: List view with filtering, search, and pagination
+- Shopping Cart: Add/remove products with real-time count updates
+- Product Details: Rich detail view with sharing capabilities
+- Social Features: Comments system and live chat functionality
+- Backend Flexibility: ServiceFactory pattern supporting Firestore and REST
+
+## Architecture Overview
+App follows a Coordinator Pattern with MVVM architecture, which is excellent for maintainability and testability:
+
+ - AppCoordinator → TabBarCoordinator → Individual feature coordinators
+ - Clear separation of concerns with ViewModels, DataSources, and Services
+ - Protocol-oriented design for services (Firebase/REST flexibility)
 
 ## 🎥 Working Video
 
