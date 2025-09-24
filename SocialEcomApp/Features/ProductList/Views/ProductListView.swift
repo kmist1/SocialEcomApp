@@ -16,11 +16,10 @@ struct ProductListView: View {
             content
                 .navigationTitle("Products")
                 .navigationBarTitleDisplayMode(.inline)
-                // ✅ Move toolbar here so it only applies on this screen
+                .searchable(text: $viewModel.searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: "Search by name")
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Menu {
-                            // Price filter options
                             Button("All prices") { viewModel.priceFilter = .all }
                             Button("Under $50") { viewModel.priceFilter = .under(50) }
                             Button("$50 – $200") { viewModel.priceFilter = .between(50, 200) }
@@ -53,13 +52,35 @@ struct ProductListView: View {
 
         case .success(let products):
             if products.isEmpty {
-                // Empty AFTER filtering
-                VStack(spacing: 8) {
+                VStack(spacing: 12) {
                     Image(systemName: "magnifyingglass")
                         .font(.largeTitle)
                         .foregroundColor(.secondary)
-                    Text("No products match your filters.")
-                        .foregroundColor(.secondary)
+
+                    // Show different messages based on whether user is searching
+                    if !viewModel.searchText.isEmpty || viewModel.priceFilter != .all {
+                        Text("No products found")
+                            .font(.headline)
+                            .foregroundColor(.secondary)
+
+                        if !viewModel.searchText.isEmpty {
+                            Text("No results for '\(viewModel.searchText)'")
+                                .font(.subheadline)
+                                .foregroundColor(.secondary)
+                        }
+
+                        Text("Try adjusting your search or filters.")
+                            .font(.subheadline)
+                            .foregroundColor(.secondary)
+                    } else {
+                        Text("No products available")
+                            .font(.headline)
+                            .foregroundColor(.secondary)
+                        Text("Check back later for new arrivals.")
+                            .font(.subheadline)
+                            .foregroundColor(.secondary)
+                    }
+
                     Button("Clear Filters") {
                         viewModel.searchText = ""
                         viewModel.priceFilter = .all
@@ -116,12 +137,17 @@ struct ProductListView: View {
                     }
                 }
                 .listStyle(.plain)
-                .searchable(text: $viewModel.searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: "Search by name")
             }
 
         case .failure(let error):
             VStack(spacing: 12) {
+                Image(systemName: "exclamationmark.triangle")
+                    .font(.largeTitle)
+                    .foregroundColor(.red)
                 Text("Error: \(error.localizedDescription)")
+                    .font(.headline)
+                    .foregroundColor(.secondary)
+                    .multilineTextAlignment(.center)
                 Button("Retry") {
                     viewModel.loadInitial()
                 }

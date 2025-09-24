@@ -17,13 +17,3 @@ final class ChatCoordinator {
         }
     }
 }
-
-class ChatViewModel {}
-
-struct ChatTabView: View {
-
-    var viewModel: ChatViewModel
-    var body: some View {
-        Text("Hello chat")
-    }
-}

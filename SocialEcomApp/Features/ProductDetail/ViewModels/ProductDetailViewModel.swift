@@ -11,7 +11,6 @@ import Combine
 import Foundation
 import Combine
 
-// ✅ Assumes `CartDataSourceProtocol` is available via import or shared module
 final class ProductDetailViewModel: ObservableObject {
     @Published var product: Product
     @Published var isAddedToCart = false
