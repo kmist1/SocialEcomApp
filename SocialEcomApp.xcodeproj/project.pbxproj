@@ -12,9 +12,6 @@
 		934A08C62E7E7642002EED94 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 934A08C52E7E7642002EED94 /* GoogleService-Info.plist */; };
 		934A08C72E7E7642002EED94 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 934A08C52E7E7642002EED94 /* GoogleService-Info.plist */; };
 		934A08C82E7E7642002EED94 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 934A08C52E7E7642002EED94 /* GoogleService-Info.plist */; };
-		93E659C92E80A87E00330DFF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93E659C82E80A87E00330DFF /* LaunchScreen.storyboard */; };
-		93E659CA2E80A87E00330DFF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93E659C82E80A87E00330DFF /* LaunchScreen.storyboard */; };
-		93E659CB2E80A87E00330DFF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93E659C82E80A87E00330DFF /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +36,6 @@
 		934A08532E7CDFBF002EED94 /* SocialEcomAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SocialEcomAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		934A085D2E7CDFBF002EED94 /* SocialEcomAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SocialEcomAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		934A08C52E7E7642002EED94 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		93E659C82E80A87E00330DFF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -103,7 +99,6 @@
 		934A083A2E7CDFBE002EED94 = {
 			isa = PBXGroup;
 			children = (
-				93E659C82E80A87E00330DFF /* LaunchScreen.storyboard */,
 				934A08452E7CDFBE002EED94 /* SocialEcomApp */,
 				934A08562E7CDFBF002EED94 /* SocialEcomAppTests */,
 				934A08602E7CDFBF002EED94 /* SocialEcomAppUITests */,
@@ -255,7 +250,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				93E659C92E80A87E00330DFF /* LaunchScreen.storyboard in Resources */,
 				934A08C62E7E7642002EED94 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -265,7 +259,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				934A08C82E7E7642002EED94 /* GoogleService-Info.plist in Resources */,
-				93E659CB2E80A87E00330DFF /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,7 +267,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				934A08C72E7E7642002EED94 /* GoogleService-Info.plist in Resources */,
-				93E659CA2E80A87E00330DFF /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,6 +434,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SocialEcomApp/Preview Content\"";
@@ -473,6 +466,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SocialEcomApp/Preview Content\"";
