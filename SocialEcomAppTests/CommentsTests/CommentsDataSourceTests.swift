@@ -132,8 +132,3 @@ class MockCommentService: CommentServiceProtocol {
     }
 }
 
-enum TestError: Error {
-    case networkError
-    case invalidData
-}
-

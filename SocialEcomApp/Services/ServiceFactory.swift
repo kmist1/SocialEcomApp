@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import FirebaseFirestore
 
 enum BackendType {
     case firestore
@@ -53,9 +54,20 @@ class RestSubbService: ProductServiceProtocol, CommentServiceProtocol, ChatServi
 
     func addComment(_ comment: Comment, completion: @escaping (Result<Void, any Error>) -> Void) {
     }
-    
+
     func fetchAllProducts(completion: @escaping (Result<[Product], any Error>) -> Void) {}
-    
+
     func fetchComments(productId forProductId: String, completion: @escaping (Result<[Comment], any Error>) -> Void) {}
-    
+
+    func listenForMessages(productId: String, completion: @escaping (Result<[ChatMessage], Error>) -> Void) -> ListenerRegistration {
+        // Return a dummy listener registration for REST implementation
+        return DummyListenerRegistration()
+    }
+}
+
+// Add a dummy listener registration for REST implementation
+class DummyListenerRegistration: NSObject, ListenerRegistration {
+    func remove() {
+        // No-op for REST implementation
+    }
 }
