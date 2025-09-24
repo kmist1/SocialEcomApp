@@ -20,8 +20,9 @@ App follows a Coordinator Pattern with MVVM architecture, which is excellent for
  - Protocol-oriented design for services (Firebase/REST flexibility)
 
 ## 🎥 Working Video
+![Simulator Screen Recording - iPhone 16 - 2025-09-21 at 18 24 45](https://github.com/user-attachments/assets/5fd4309b-d0b5-4c98-b2d3-d91a1834cfb8)
 
-> **👉 (To be added)** — A demo walkthrough video showcasing the app in action will be added here.
+
 
 ## 🏗 High-Level System Design
 <img width="3840" height="1947" alt="new highlevel ecomm diagram " src="https://github.com/user-attachments/assets/051ee9be-70d5-4ff4-8f13-227785601848" />
@@ -78,6 +79,14 @@ Class Level:
     *   Select the `SocialEcomApp` scheme.
     *   Choose a simulator or physical device.
     *   Press the ▶ button in Xcode to build and run the app.
+
+## 📄 Unit Tests 
+- Currently covering Service layer, Datasources, and ViewModels. Need to add tests for UI views.
+
+
+<img width="1715" height="993" alt="Screenshot 2025-09-21 at 6 18 44 PM" src="https://github.com/user-attachments/assets/f8754cfe-0a68-4a5e-a8d6-7774615b642c" />
+
+
 
 ## 📄 PRD & Documentation
 
