@@ -37,6 +37,10 @@ Class Level:
 
 > High-Level Sequence Diagram: (https://www.mermaidchart.com/app/projects/36be8ae2-7e2e-482e-822a-675eb34bb6d6/diagrams/eab7c5fd-5670-453b-9b5f-12f5b52ddb07/version/v0.1/edit)
 
+## Firestore database entity relationship diagram
+
+<img width="3513" height="258" alt="SocialEcomApp_ERDiagram" src="https://github.com/user-attachments/assets/b8212976-802b-4d3d-91f8-2be0deb9ea8b" />
+
 ## 🛠 Tech Stack
 
 *   **Language:** Swift 5.9+
