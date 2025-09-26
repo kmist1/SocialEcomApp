@@ -65,6 +65,9 @@ final class CommentsViewModel: ObservableObject {
     }
 
     // MARK: - Grouped Comments for UI
+    /// Separates top-level comments from replies
+    /// Groups replies by their parent comment's ID
+    /// - Returns: Tuple of top-level comments and dictionary of replies
     func groupedComments() -> (topLevel: [Comment], replies: [String: [Comment]]) {
         guard case .loaded(let comments) = state else {
             return ([], [:])
