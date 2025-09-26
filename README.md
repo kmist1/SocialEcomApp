@@ -1,8 +1,8 @@
 # 📱 SocialEcomApp
 
 ## About Me
-My Experience in iOS
-What I enjoyed most (challenges) - Sparky CustomCallout Impl and Custom Map for Offroad App (Ford)
+- My Experience in iOS
+- What I enjoyed most (challenges) - Sparky CustomCallout Impl and Custom Map for Offroad App (Ford)
 
 ## Ask
 
@@ -167,14 +167,10 @@ Class Level:
 
 <img width="1715" height="993" alt="Screenshot 2025-09-21 at 6 18 44 PM" src="https://github.com/user-attachments/assets/f8754cfe-0a68-4a5e-a8d6-7774615b642c" />
 
+## AI Tools usage (70 - 75%)
 
-
-## 📄 PRD & Documentation
-
-> **👉 (Confluence link here)**
-
-*   Product Requirements Document (PRD)
-*   UML Sequence Diagrams
+- GPT-5 Model:  Code for views, viewModels, Network layer and firestore integrations
+- Claude Sonnet 4: - To write UTs, Mermaid diagrams 
 
 ## 📌 Future Enhancements
 
@@ -182,4 +178,5 @@ Class Level:
 *   Functionality to save or favorite products.
 *   Push notifications for new chat messages or replies.
 *   Offline-first support with local caching.
-*   Dark mode theming.
+*   Add some UI automations
+*   Replace print statement with logs or something 
