@@ -1,5 +1,21 @@
 # 📱 SocialEcomApp
 
+## About Me
+My Experience in iOS
+What I enjoyed most (challenges) - Sparky CustomCallout Impl and Custom Map for Offroad App (Ford)
+
+## Ask
+
+- Product listing with filtering/search capability
+- Product detail view with add-to-cart functionality
+- Product sharing via the system share sheet
+- Peer-to-peer commenting system on product pages
+- Real-time updates when new comments are added
+- Use Firebase or a mock backend for products, chat, and comments
+- Show proper handling of real-time communications
+- Use your discretion in UX design.
+
+
 ## 🚀 Summary
 
 SocialEcomApp is a social e-commerce iOS application built with SwiftUI using the **MVVM-C (Model–View–ViewModel–Coordinator) architecture**. This project serves as a practical demonstration of modular design, coordinator-based navigation, and Firebase's real-time capabilities.
@@ -11,6 +27,67 @@ SocialEcomApp is a social e-commerce iOS application built with SwiftUI using th
 - Product Details: Rich detail view with sharing capabilities
 - Social Features: Comments system and live chat functionality
 - Backend Flexibility: ServiceFactory pattern supporting Firestore and REST
+
+## My thoughts and assumptions 
+ - App will reach billions of users - Need to be scalable and maintainable. - In scope
+ - Pagination for ProductList - In scope
+ - Pagination for chat and comments, and cleanup: Chat and comments need pagination + retention policy to avoid memory bloat. - not in scope
+ - Image caching: Catalog performance depends on optimized image loading and caching. - In scope 
+ - Offline-first core flows: Browsing and cart must work without network; sync later.- In scope
+ - User auth evolution: Start with anonymous users, but plan migration to social logins and Apple Sign-In. - In Scope
+ - Rest API can be integrated. 
+
+## ✅ MVP and 🚫 Out of MVP
+
+### ✅ In Scope (MVP)
+- **Architecture:** MVVM-C + DataSource pattern, ServiceFactory for backend flexibility.  
+- **Realtime:** Firestore listeners for chat & comments, optimistic UI updates.  
+- **Memory & Errors:** ViewModel cleanup, basic error handling & retry.  
+- **UX:** Anonymous users, threaded comments (1-level), per-product chat rooms.  
+- **Cart:** Offline-first support via local DataSource.  
+- **Performance:** Efficient product queries, AsyncImage with loading states, reactive UI with Combine.  
+
+### 🚫 Out of Scope (Future Versions)
+- **Scale/Ops:** Chat retention policies, Firestore cost optimization, performance monitoring.  
+- **Moderation:** Spam prevention, reporting & blocking, API rate limiting.  
+- **Recommendations:** AI/ML-driven suggestions, trending/seasonal highlights.  
+- **Advanced Chat:** Reactions, typing indicators, multimedia messages, chat profiles, push notifications.  
+- **User Features:** Auth & profiles, social logins (e.g., Apple Sign-In, Facebook).  
+- **Tech Enhancements:** Accessibility compliance and advanced caching strategies.  
+
+---
+
+## 🚀 Challenges & Solutions
+
+1. **Real-time Data Sync (Chat & Comments)**  
+   - *Challenge:* Keeping UI consistent with Firestore listeners across multiple screens.  
+   - *Solution:* Used `@Published` in ViewModels + Combine pipelines to auto-propagate updates.  
+
+2. **Complex Navigation (Product → Detail → Chat/Comments/Cart)**  
+   - *Challenge:* Avoiding view-driven navigation logic.  
+   - *Solution:* Adopted **Coordinator pattern (MVVM-C)** to centralize flows and keep Views lightweight.  
+
+3. **Testability with Firebase Dependencies**  
+   - *Challenge:* Direct Firestore calls made unit testing difficult.  
+   - *Solution:* Introduced **protocol-backed Services + ServiceFactory** to inject mocks for testing.  
+
+4. **SwiftUI Limitation**  
+   - *Challenge:* SwiftUI doesn’t provide a native ShareSheet.  
+   - *Solution:* Implemented **UIViewControllerRepresentable** to integrate UIKit ShareSheet with SwiftUI.  
+
+## ⚖️ Tradeoff Matrix
+
+| **Decision**                   | **Chosen**                            | **Tradeoff**                                              | **Alternative**                          |
+|--------------------------------|----------------------------------------|-----------------------------------------------------------|------------------------------------------|
+| Architecture vs Speed           | MVVM-C + DI + Coordinators             | Slower initial dev, more complexity                       | MVC for faster shipping, more tech debt  |
+| Backend                         | Firebase Firestore                     | Vendor lock-in, scaling costs                             | Custom REST backend, more dev effort     |
+| Filtering                       | Client-side (search, price)            | Fine for small sets, doesn’t scale                        | Server-side filtering for large datasets |
+| Cart                            | Local/in-memory                        | Resets on restart, no persistence                         | Persistent cart with backend + auth      |
+| Auth                            | Anonymous users                        | No profiles, history, or sync                             | Full auth + Apple Sign-In                | 
+| Comments                        | One-level parent/child threads         | Simple but limited discussion depth                       | Nested threads (Reddit-style)            |
+| Real-time Updates               | Chat only                              | Balanced UX vs Firestore costs                            | Full realtime for all features           |
+| UI Framework                    | SwiftUI                                | iOS 14+ only, some quirks                                 | UIKit for wider support, more boiler     |
+| Offline Mode                    | Hybrid (offline cart, online social)   | More complex state management                             | Online-only, simpler but brittle offline |
 
 ## Architecture Overview
 App follows a Coordinator Pattern with MVVM architecture, which is excellent for maintainability and testability:
