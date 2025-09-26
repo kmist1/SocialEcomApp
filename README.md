@@ -1,5 +1,9 @@
 # 📱 SocialEcomApp
 
+## About Me
+My Experience in iOS
+What I enjoyed most (challenges) - Sparky CustomCallout Impl and Custom Map for Offroad App (Ford)
+
 ## Ask
 
 - Product listing with filtering/search capability
