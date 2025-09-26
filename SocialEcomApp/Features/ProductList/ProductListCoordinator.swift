@@ -8,14 +8,23 @@
 import SwiftUI
 
 final class ProductListCoordinator {
+    // MARK: - Properties
     private let cartDataSource: CartDataSourceProtocol
+    private var viewModel: ProductListViewModel?  // Strong reference to own ViewModel lifecycle
 
+    // MARK: - Initialization
     init(cartDataSource: CartDataSourceProtocol) {
         self.cartDataSource = cartDataSource
     }
 
+    // MARK: - Navigation
     func start() -> some View {
-        let viewModel = ProductListViewModel()
+        // Create and retain ViewModel with proper dependencies
+        let viewModel = ProductListViewModel(
+            dataSource: ProductDataSource()
+        )
+        self.viewModel = viewModel
+
         return NavigationView {
             ProductListView(viewModel: viewModel, coordinator: self)
                 .navigationBarTitleDisplayMode(.inline)
@@ -23,7 +32,10 @@ final class ProductListCoordinator {
     }
 
     func productDetail(for product: Product) -> some View {
-        let detailCoordinator = ProductDetailCoordinator(product: product, cartDataSource: cartDataSource)
+        let detailCoordinator = ProductDetailCoordinator(
+            product: product,
+            cartDataSource: cartDataSource
+        )
         return detailCoordinator.start()
     }
 }

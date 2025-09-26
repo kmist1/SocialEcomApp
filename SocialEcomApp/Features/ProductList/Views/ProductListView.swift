@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ProductListView: View {
-    @StateObject var viewModel: ProductListViewModel = ProductListViewModel()
+    @StateObject var viewModel: ProductListViewModel
     var coordinator: ProductListCoordinator
 
     var body: some View {
